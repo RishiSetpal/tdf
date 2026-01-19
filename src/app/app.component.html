@@ -1,28 +1,58 @@
 <!-- div.container-fluid -->
 <div class="container-fluid">
   <h1>Bootcamp Enrollment Form</h1>
-  <form>
+  <!-- 
+    Template Refernce Varible using #userForm 
+    Assign string "ngForm" to userForm variable
+    
+    Now, we have Reference to the deractive ngForm
+    which is provided by FormsModule
+
+    Directive gives the access to the values of the form Controls
+    and the overall form state (valid/invalid, pristine/dirty, etc.)
+   -->
+  <form #userForm="ngForm">
+    {{ userForm.value | json }}
+
     <!-- Text | email | tel -->
     <!-- form-group & form-control are BootStrap Classes-->
+    Basic Details:
     <div class="form-group">
-      <label for="name">Name</label>
-      <input type="text" class="form-control" />
+      <label>Name</label>
+      <input type="text" class="form-control" ngModel name="name" />
     </div>
     <div class="form-group">
-      <label for="email">Email</label>
-      <input type="email" class="form-control" />
+      <label>Email</label>
+      <input type="email" class="form-control" ngModel name="email" />
     </div>
     <div class="form-group mb-3">
-      <label for="phone">Phone</label>
-      <input type="tel" class="form-control" />
+      <label>Phone</label>
+      <input type="tel" class="form-control" ngModel name="phone" />
+    </div>
+
+    <!-- NgModal Group Directive -->
+    <div ngModelGroup="address" class="mb-3">
+      Address:
+      <div class="form-group">
+        <label>Street</label>
+        <input type="text" class="form-control" ngModel name="street" />
+      </div>
+      <div class="form-group">
+        <label>City</label>
+        <input type="text" class="form-control" ngModel name="city" />
+      </div>
+      <div class="form-group">
+        <label>Zip Code</label>
+        <input type="text" class="form-control" ngModel name="zipCode" />
+      </div>
     </div>
 
     <!-- Select Dropdown -->
     <div class="form-group mb-3">
       <!-- form-select BootStrap 5 class and Above -->
       <!-- custom-select BootStrap 4 class -->
-      <select class="form-select">
-        <option selected>I am interseted in</option>
+      <select class="form-select" ngModel name="topic">
+        <option selected [value]="null">I am interseted in</option>
         <option *ngFor="let topic of topics" [value]="topic">
           {{ topic }}
         </option>
@@ -39,6 +69,7 @@
           class="form-check-input"
           name="timePreference"
           value="morning"
+          ngModel
         />
         <label class="form-check-label">Morning (9AM -12Am)</label>
       </div>
@@ -48,6 +79,7 @@
           class="form-check-input"
           name="timePreference"
           value="evening"
+          ngModel
         />
         <label class="form-check-label">Afternoon (12PM - 5PM)</label>
       </div>
@@ -55,10 +87,23 @@
 
     <!-- Checkbox -->
     <div class="form-check mb-3">
-      <input type="checkbox" class="form-check-input" />
+      <input
+        type="checkbox"
+        class="form-check-input"
+        ngModel
+        name="subscribe"
+      />
       <label class="form-check-label">Send me Promotional Offers</label>
     </div>
 
     <button class="btn btn-primary" type="submit">Summary Form</button>
   </form>
 </div>
+
+<!-- 
+  In Template Driven From 
+  We have 3 Directives
+  1. ngModel
+  2. ngForm
+  3. ngModelGroup
+-->
