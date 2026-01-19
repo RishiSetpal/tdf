@@ -1,1 +1,64 @@
-<button class="btn btn-primary">Summary</button>
+<!-- div.container-fluid -->
+<div class="container-fluid">
+  <h1>Bootcamp Enrollment Form</h1>
+  <form>
+    <!-- Text | email | tel -->
+    <!-- form-group & form-control are BootStrap Classes-->
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" />
+    </div>
+    <div class="form-group mb-3">
+      <label for="phone">Phone</label>
+      <input type="tel" class="form-control" />
+    </div>
+
+    <!-- Select Dropdown -->
+    <div class="form-group mb-3">
+      <!-- form-select BootStrap 5 class and Above -->
+      <!-- custom-select BootStrap 4 class -->
+      <select class="form-select">
+        <option selected>I am interseted in</option>
+        <option *ngFor="let topic of topics" [value]="topic">
+          {{ topic }}
+        </option>
+      </select>
+    </div>
+
+    <!-- Radio Button -->
+    <div class="form-group mb-3">
+      <label>Time Preference</label>
+      <!-- form-check & form-check-input -->
+      <div class="form-check">
+        <input
+          type="radio"
+          class="form-check-input"
+          name="timePreference"
+          value="morning"
+        />
+        <label class="form-check-label">Morning (9AM -12Am)</label>
+      </div>
+      <div class="form-check">
+        <input
+          type="radio"
+          class="form-check-input"
+          name="timePreference"
+          value="evening"
+        />
+        <label class="form-check-label">Afternoon (12PM - 5PM)</label>
+      </div>
+    </div>
+
+    <!-- Checkbox -->
+    <div class="form-check mb-3">
+      <input type="checkbox" class="form-check-input" />
+      <label class="form-check-label">Send me Promotional Offers</label>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Summary Form</button>
+  </form>
+</div>
