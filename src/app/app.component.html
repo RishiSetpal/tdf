@@ -28,19 +28,35 @@
 
     <!-- Text | email | tel -->
     <!-- form-group & form-control are BootStrap Classes-->
+
+    
     <p>Basic Details:</p>
     <div class="form-group">
       <label>Name</label>
+      <!--#userName                     --is-- Template Refernce Varible -->
+          <!-- <hr />
+          {{ userName.value }}
+          <hr />
+          {{ userName.className }}
+          <hr />
+          {{userName.classList}}<hr> -->
+      <!--[(ngModel)]="userModel.name"  --is-- Two Way Data Binding -->
+      <!--name                          --is-- Field Name on which FormControl is Binds Data to NgForm-->
+
+      <!-- #userName="ngModel" - This will help us access the ngModel directive's properties -->
+      <!-- {{userName.untouched}} - This will show that it was touched or not -->
       <input
+        #userName="ngModel"
         type="text"
         class="form-control"
         [(ngModel)]="userModel.name"
-        name="name"
+        name="userName"
       />
     </div>
     <div class="form-group">
       <label>Email</label>
       <input
+        #email
         type="email"
         class="form-control"
         [(ngModel)]="userModel.email"
@@ -50,6 +66,7 @@
     <div class="form-group mb-3">
       <label>Phone</label>
       <input
+        #phone
         type="tel"
         class="form-control"
         [(ngModel)]="userModel.phone"
@@ -63,6 +80,7 @@
       <div class="form-group">
         <label>Street</label>
         <input
+          #street
           type="text"
           class="form-control"
           [(ngModel)]="userModel.address.street"
@@ -72,6 +90,7 @@
       <div class="form-group">
         <label>City</label>
         <input
+          #city
           type="text"
           class="form-control"
           [(ngModel)]="userModel.address.city"
@@ -81,6 +100,7 @@
       <div class="form-group">
         <label>Zip Code</label>
         <input
+          #zipCode
           type="text"
           class="form-control"
           [(ngModel)]="userModel.address.zipCode"
