@@ -1,6 +1,43 @@
 # Template Driven Forms (TDF)
+Demonstration of Template Driven Forms
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.3.
+Angular version 16 is been used in this Project
+- npm i
+- ng serve -o
+
+
+
+------------------------------
+Angualar Forms 
+------------------------------
+- Component Template: contains HTML to Collecte user Data.
+- Compoent Class: Handles data bindings 
+- Service: Collected Data has been Send to the server via Service
+
+Template Driven Forms (TDF) 
+- written in .HTML Compoent Templates
+- Two Data Modeling - uing [(ngModel)]
+- ngForm Deractives, ngModel Deractives 
+-- DrawBack can't be unit Tested --> Need to Wright Browser Testing
+
+
+Rective Forms>
+- Written in .ts Compoent Class
+
+
+Check Version of Angular
+ng -v
+ng version
+
+npm install -g @angular/cli@<version>
+npm uininstall -g angualr-cli
+npm uininstall --save-dev -g angualr-cli
+
+To Clear a NodeModule Packages Bundle
+npm cache verify 
+
+Add BootStap CSS (By adding this in index.html)
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
 ## Development server
 
