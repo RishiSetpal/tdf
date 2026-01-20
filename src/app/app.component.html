@@ -55,7 +55,7 @@
         name="userName"
       />
       <!-- [ngClass]="userName.invalid && userName.touched ? 'is-invalid' : ''" -->
-      <small [class.d-none]="userName.valid || userName.untouched" class="invalid-feedback">User Name is Required.</small>
+      <small [class.d-none]="userName.valid || (userName.untouched && userName.pristine)" class="invalid-feedback">User Name is Required.</small>
     </div>
     <div class="form-group">
       <label>Email</label>
