@@ -20,11 +20,15 @@
     [(ngModel)]="userModel.timePrefernce"
     ie. Model and View in Sinchronization
     -->
-  <form #userForm="ngForm">
+  <form #userForm="ngForm"> <!-- form automatically attcahes ngForm directive to the form tag (#userForm template Reference variable) -->
     UserForm: {{ userForm.value | json }}
     <hr />
     userModel: {{ userModel | json }}
     <hr />
+    <!-- userForm.form.valid: {{userForm.form.valid}}
+    userForm.valid: {{userForm.valid}}
+    userForm.form.invalid: {{userForm.form.invalid}}
+    userForm.invalid: {{userForm.invalid}} -->
 
     <!-- Text | email | tel -->
     <!-- form-group & form-control are BootStrap Classes-->
@@ -127,7 +131,8 @@
       <label class="form-check-label">Send me Promotional Offers</label>
     </div>
 
-    <button class="btn btn-primary" type="submit">Summary Form</button>
+    <!-- [PropertyBinding] -->
+    <button [disabled]="userForm.invalid || isTopicInvalid" class="btn btn-primary" type="submit" >Summary Form</button>
   </form>
 </div>
 
