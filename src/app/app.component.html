@@ -20,7 +20,8 @@
     [(ngModel)]="userModel.timePrefernce"
     ie. Model and View in Sinchronization
     -->
-  <form #userForm="ngForm"> <!-- form automatically attcahes ngForm directive to the form tag (#userForm template Reference variable) -->
+  <form #userForm="ngForm" novalidate (ngSubmit)="onSubmit()">
+    <!-- form automatically attcahes ngForm directive to the form tag (#userForm template Reference variable) -->
     UserForm: {{ userForm.value | json }}
     <hr />
     userModel: {{ userModel | json }}
@@ -99,14 +100,15 @@
       <!-- form-select BootStrap 5 class and Above -->
       <!-- custom-select BootStrap 4 class -->
       <select (blur)="validateTopic(topic.value)" (change)="validateTopic()" class="form-select" #topic="ngModel"
-        [class.is-invalid]="!isTopicInvalid && topic.touched" [(ngModel)]="userModel.topic" name="topic">
+        [class.is-invalid]="isTopicInvalid && topic.touched" [(ngModel)]="userModel.topic" name="topic">
         <option selected [value]="null">I am interseted in</option>
         <option *ngFor="let topic of topics" [value]="topic">
           {{ topic }}
         </option>
       </select>
-      <small [class.d-none]="isTopicInvalid || (topic.untouched && topic.pristine)" class="invalid-feedback">Topic is
-        Required.</small>
+      <small [class.d-none]="!isTopicInvalid || (topic.untouched && topic.pristine)" class="invalid-feedback">
+        Topic is Required.
+      </small>
     </div>
 
     <!-- Radio Button -->
@@ -132,7 +134,7 @@
     </div>
 
     <!-- [PropertyBinding] -->
-    <button [disabled]="userForm.invalid || isTopicInvalid" class="btn btn-primary" type="submit" >Summary Form</button>
+    <button [disabled]="userForm.invalid || isTopicInvalid" class="btn btn-primary" type="submit">Summary Form</button>
   </form>
 </div>
 
